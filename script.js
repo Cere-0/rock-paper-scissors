@@ -12,7 +12,7 @@ function computerPlay (){ //Choses a number between 0 and 2 and depending on the
 
 function playRound(playerSelection, computerSelection) { //Plays a round against the computer
     if (playerSelection === computerSelection) {
-        return 'Its a tie';
+        return 'IT\'S A TIE';
     }
     else if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS' || playerSelection === 'PAPER' && computerSelection === 'ROCK' || playerSelection === 'SCISSORS' && computerSelection === 'PAPER') {
         return 'YOU WIN';
@@ -21,13 +21,25 @@ function playRound(playerSelection, computerSelection) { //Plays a round against
         return 'YOU LOSE';
     }
 }
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerSelection =  prompt('Choose ROCK, PAPER or SCISSORS:').toUpperCase();
+        const computerSelection = computerPlay();
+        console.log('You choose ' + playerSelection); //User choice
+        console.log('Computer chooses ' + computerSelection);//Computer choice
+        console.log(playRound(playerSelection,computerSelection))
+        
+    }
+}
 
-const playerSelection =  prompt('Choose ROCK, PAPER or SCISSORS:').toUpperCase(); //Ask the user for imput and converts it to a lowercase string.
+//const playerSelection =  prompt('Choose ROCK, PAPER or SCISSORS:').toUpperCase(); //Ask the user for imput and converts it to a lowercase string.
 
-console.log('You choose ' + playerSelection); //User choice
+//console.log('You choose ' + playerSelection); //User choice
 
-const computerSelection = computerPlay();
+//const computerSelection = computerPlay();
 
-console.log('Computer chooses ' + computerSelection);//Computer choice
+//console.log('Computer chooses ' + computerSelection);//Computer choice
 
-console.log(playRound(playerSelection,computerSelection));
+//console.log(playRound(playerSelection,computerSelection));
+
+console.log(game());
