@@ -9,8 +9,8 @@ function computerPlay(){ //Choses a number between 0 and 2 and depending on the 
         }
 }
 
-let computerChoice = document.querySelector('#computer-choice');
-let computerChoiceContent = document.createElement('p');
+const computerChoice = document.querySelector('#computer-choice'); //Adds the computer choice to the HTML
+const computerChoiceContent = document.createElement('p');
 computerChoiceContent.textContent = computerPlay();
 computerChoice.appendChild(computerChoiceContent);
 
@@ -30,11 +30,29 @@ function playRound(playerSelection, computerSelection) { //Plays a round against
     
 }
 
+
+    
+// function playerSelection(){
+//     let rpsBttns = document.querySelectorAll('button');
+//     for (let i of rpsBttns){
+//         i.addEventListener('click', () => {
+//             // console.log(i.textContent)
+//             choice = i.textContent;
+//             return choice;
+//         });
+//     }
+// }
+
+
+const userChoice = document.querySelector('#user-choice');
+let userChoiceContent = document.createElement('p');
+
 let rpsBttns = document.querySelectorAll('button');
 
 for (let i of rpsBttns){
     i.addEventListener('click', () => {
-        console.log(i.textContent)
+        userChoiceContent.textContent = i.textContent;
+        userChoice.appendChild(userChoiceContent);
     });
 }
 
@@ -72,7 +90,7 @@ for (let i of rpsBttns){
 // let roundTie = 0;
 
 // console.log(game(''));
-// console.log('Rounds winned: ' + roundWin, 'Rounds losed: ' +  roundLose, 'Rounds tied: ' +  roundTie);
+// console.log('Rounds winned: ' + roundWin, 'Rounds lost: ' +  roundLose, 'Rounds tied: ' +  roundTie);
 // if (roundWin > roundLose){
 //    console.log('WINNER');
 // }
