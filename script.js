@@ -8,6 +8,13 @@ function computerPlay(){ //Choses a number between 0 and 2 and depending on the 
         return "SCISSORS"
         }
 }
+
+let computerChoice = document.querySelector('#computer-choice');
+let computerChoiceContent = document.createElement('p');
+computerChoiceContent.textContent = computerPlay();
+computerChoice.appendChild(computerChoiceContent);
+
+
 function playRound(playerSelection, computerSelection) { //Plays a round against the computer
     if (playerSelection === computerSelection) {
         return 'IT\'S A TIE';
