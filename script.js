@@ -17,6 +17,7 @@ computerChoice.appendChild(computerChoiceContent);
 
 function playRound(playerSelection, computerSelection) { //Plays a round against the computer
     if (playerSelection === computerSelection) {
+        
         return 'IT\'S A TIE';
         
     }
@@ -29,8 +30,10 @@ function playRound(playerSelection, computerSelection) { //Plays a round against
     }
     
 }
-
-
+const result = document.querySelector('#results')
+let resultShow = document.createElement('p');
+result.textContent = playRound();
+result.appendChild(resultShow);
     
 // function playerSelection(){
 //     let rpsBttns = document.querySelectorAll('button');
@@ -47,15 +50,19 @@ function playRound(playerSelection, computerSelection) { //Plays a round against
 const userChoice = document.querySelector('#user-choice');
 let userChoiceContent = document.createElement('p');
 
-let rpsBttns = document.querySelectorAll('button');
+function playerSelection(){
+    let rpsBttns = document.querySelectorAll('button');
 
-for (let i of rpsBttns){
-    i.addEventListener('click', () => {
-        userChoiceContent.textContent = i.textContent;
-        userChoice.appendChild(userChoiceContent);
-    });
+    for (let i of rpsBttns){ //Adds the user choice to the HTML when the buttons a the buttons are clicked
+        i.addEventListener('click', () => {
+            userChoiceContent.textContent = i.textContent;
+            return userChoice.appendChild(userChoiceContent);
+        });
+    }
 }
-
+// computerPlay();
+playerSelection();
+console.log(playRound());
 
 // const rock = document.getElementById('rock')
 // if (rock.innerText === 'ROCK'){
