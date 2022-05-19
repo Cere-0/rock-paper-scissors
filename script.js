@@ -9,13 +9,38 @@ function computerPlay(){ //Choses a number between 0 and 2 and depending on the 
         }
 }
 
-const computerChoice = document.querySelector('#computer-choice'); //Adds the computer choice to the HTML
+const computerChoice = document.querySelector('#computer-choice'); //? Adds the computer choice to the HTML
 const computerChoiceContent = document.createElement('p');
-computerChoiceContent.textContent = computerPlay();
-computerChoice.appendChild(computerChoiceContent);
+
+const userChoice = document.querySelector('#user-choice'); //!USER CHOICE
+let userChoiceContent = document.createElement('p');
 
 
+
+const result = document.querySelector('#results')
+let resultShow = document.createElement('p');
+
+
+function playerSelection(){
+    let rpsBttns = document.querySelectorAll('button');
+
+    for (let i of rpsBttns){ //Adds the user choice to the HTML when the buttons a the buttons are clicked
+        i.addEventListener('click', () => {
+            computerChoiceContent.textContent = computerPlay();
+            computerChoice.appendChild(computerChoiceContent);
+            userChoiceContent.textContent = i.textContent;
+            userChoice.appendChild(userChoiceContent);
+            result.textContent = playRound(userChoiceContent.textContent, computerChoiceContent.textContent);
+            // console.log(userChoiceContent.textContent);
+            // console.log(computerChoiceContent.textContent);
+            
+            return result.appendChild(resultShow);
+        });
+    }
+}
 function playRound(playerSelection, computerSelection) { //Plays a round against the computer
+    console.log('PC '+ playerSelection);
+    console.log('CC '+ computerSelection);
     if (playerSelection === computerSelection) {
         
         return 'IT\'S A TIE';
@@ -30,39 +55,51 @@ function playRound(playerSelection, computerSelection) { //Plays a round against
     }
     
 }
-const result = document.querySelector('#results')
-let resultShow = document.createElement('p');
-result.textContent = playRound();
-result.appendChild(resultShow);
-    
-// function playerSelection(){
-//     let rpsBttns = document.querySelectorAll('button');
-//     for (let i of rpsBttns){
-//         i.addEventListener('click', () => {
-//             // console.log(i.textContent)
-//             choice = i.textContent;
-//             return choice;
-//         });
-//     }
-// }
 
-
-const userChoice = document.querySelector('#user-choice');
-let userChoiceContent = document.createElement('p');
-
-function playerSelection(){
-    let rpsBttns = document.querySelectorAll('button');
-
-    for (let i of rpsBttns){ //Adds the user choice to the HTML when the buttons a the buttons are clicked
-        i.addEventListener('click', () => {
-            userChoiceContent.textContent = i.textContent;
-            return userChoice.appendChild(userChoiceContent);
-        });
-    }
-}
-// computerPlay();
 playerSelection();
-console.log(playRound());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const rock = document.getElementById('rock')
 // if (rock.innerText === 'ROCK'){
@@ -126,3 +163,15 @@ console.log(playRound());
 // button.addEventListener("click", () => {
 //     console.log("button clicked.");
 // });
+
+    
+// function playerSelection(){
+//     let rpsBttns = document.querySelectorAll('button');
+//     for (let i of rpsBttns){
+//         i.addEventListener('click', () => {
+//             // console.log(i.textContent)
+//             choice = i.textContent;
+//             return choice;
+//         });
+//     }
+// }
